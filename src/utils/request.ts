@@ -14,7 +14,7 @@ export default function Request<T>(
       method: method.toLowerCase(),
       header: {
         "Content-Type": "application/json",
-        Authorization: uni.getStorageSync("appToken") || "",
+        Authorization: uni.getStorageSync("app-token") || "",
       },
       success: (res: any) => {
         // 判断 请求api 格式是否正确

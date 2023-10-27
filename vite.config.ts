@@ -28,8 +28,8 @@ export default defineConfig({
     proxy: {
       "^/mes/": {
         // target: 'http://192.168.110.25:7878/',//邓
-        target: "http://192.168.110.218:7878/", //王
-        // target:'http://192.168.110.22:7878/',//吕
+        // target: "http://192.168.110.218:7878/", //王
+        target: "http://192.168.110.22:7878/", //吕
         changeOrigin: true,
       },
     },

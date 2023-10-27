@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39.998" height="39.998" viewBox="0 0 39.998 39.998">
+  <g id="派工报产1" transform="translate(13518 8474)">
+    <rect id="矩形_1299" data-name="矩形 1299" width="34.96" height="34.96" rx="4" transform="translate(-13512.531 -8474) rotate(9)" fill="#fcd4c9"/>
+    <rect id="矩形_1300" data-name="矩形 1300" width="30.58" height="30.58" rx="4" transform="translate(-13513 -8469)" fill="#f57848"/>
+    <g id="组_2444" data-name="组 2444" transform="translate(0.291 0.131)">
+      <path id="路径_854" data-name="路径 854" d="M117.653,135.148a1.436,1.436,0,1,0,1.411,1.436,1.436,1.436,0,0,0-1.411-1.436Zm18.334-6.064a2.124,2.124,0,0,0-1.716-2.2l-15.923-3.247a2.138,2.138,0,0,0-2.116,2.154v2.886h-.705a2.138,2.138,0,0,0-2.108,2.154v11.491a2.138,2.138,0,0,0,2.116,2.156h18.349A2.138,2.138,0,0,0,136,142.323l-.015-13.241Zm-18.344-3.3a.715.715,0,0,1,.644-.716l15.561,3.207a.629.629,0,0,1-.681.395H117.642Zm16.947,16.535a.712.712,0,0,1-.707.718H115.535a.713.713,0,0,1-.707-.718v-11.49a.712.712,0,0,1,.707-.718h17.635c.693,0,1.42-.24,1.42-.716V142.33Z" transform="translate(-13622.709 -8587.767)" fill="#fff"/>
+      <rect id="矩形_392" data-name="矩形 392" width="21" height="14" transform="translate(-13508.291 -8458.131)" fill="#fff"/>
+      <circle id="椭圆_44" data-name="椭圆 44" cx="1.5" cy="1.5" r="1.5" transform="translate(-13506.291 -8452.131)" fill="#f57848"/>
+      <text id="_" data-name="￥" transform="translate(-13500.463 -8447.078)" fill="#f57848" font-size="11" font-family="SourceHanSansCN-Medium, Source Han Sans CN" font-weight="500"><tspan x="0" y="0">￥</tspan></text>
+    </g>
+  </g>
+</svg>

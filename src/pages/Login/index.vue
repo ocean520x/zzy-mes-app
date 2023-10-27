@@ -8,7 +8,7 @@
         label-width="120px"
         :modelValue="baseFormData"
       >
-        <uni-forms-item label="用户账号:" name="username" required>
+        <uni-forms-item label="用户账号:" name="username" class="mt-9" required>
           <uni-easyinput
             v-model="baseFormData.username"
             placeholder="请输入用户账号"
@@ -24,8 +24,8 @@
           />
         </uni-forms-item>
         <uni-data-checkbox
-          selectedColor="#fff"
           v-model="radio"
+          @change="handleRadioChange"
           :localdata="rememberPwd"
           multiple
         ></uni-data-checkbox>
@@ -41,6 +41,13 @@
 import { ref, reactive, onMounted } from "vue";
 import { loginAPI } from "@/api/login";
 import md5_16 from "@/utils/md5_16";
+import {
+  toast,
+  getStorageSync,
+  setStorageSync,
+  removeStorageSync,
+  useRouter,
+} from "@/utils/utils";
 
 const baseForm: any = ref(null);
 const baseFormData = reactive({
@@ -66,6 +73,11 @@ const rules = reactive({
   },
 });
 const radio = ref([]);
+const handleRadioChange = (e: any) => {
+  //如果e.detail.value.length>0,则记住密码
+  const app = getApp();
+  app["_"]["appContext"]["config"]["rememberPwd"] = e.detail.value.length > 0;
+};
 const rememberPwd = ref([
   {
     text: "记住密码",
@@ -74,8 +86,8 @@ const rememberPwd = ref([
 ]);
 onMounted(() => {
   baseForm.value.setRules(rules);
-  const username = uni.getStorageSync("app-username");
-  const password = uni.getStorageSync("app-password");
+  const username = getStorageSync("app-username");
+  const password = getStorageSync("app-password");
   if (username && password) {
     baseFormData.username = username;
     baseFormData.password = password;
@@ -90,18 +102,19 @@ const submit = async () => {
       password: md5_16(baseFormData.password),
       pcApp: "app",
     });
-
-    uni.setStorageSync("app-username", baseFormData.username);
-    uni.setStorageSync("app-password", baseFormData.password);
-    uni.setStorageSync("app-token", res.data.token);
-
-    await uni.redirectTo({
-      url: "/pages/index/index",
-    });
+    handleLoginSuccess(res.data);
   } catch (err) {
     console.log("表单错误信息：", err);
   }
 };
+const handleLoginSuccess = (data: any) => {
+  toast("登录成功");
+  setStorageSync("app-username", baseFormData.username);
+  setStorageSync("app-password", baseFormData.password);
+  setStorageSync("app-token", "Bearer " + data.token);
+  useRouter("/pages/Index/index", "switchTab");
+};
+const token = getStorageSync("app-token");
 </script>
 
 <style lang="scss" scoped>
@@ -141,19 +154,19 @@ const submit = async () => {
 
 .uni-easyinput {
   background-color: #044291 !important;
-  color: aliceblue !important;
+  color: black !important;
   font-size: 13px !important;
 }
 
 .uni-input-input {
   background-color: #09376b !important;
-  color: aliceblue !important;
+  color: black !important;
 }
 
 .uni-easyinput__content-input {
   background-color: #09376b !important;
   font-size: 13px !important;
-  color: #fff !important;
+  color: black !important;
   padding-left: 10px !important;
 }
 
